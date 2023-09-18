@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Making Test Page</title>
+</head>
+<body>
+    <h1>Welcome to My JavaScript Test Page!</h1>
+    <p>Please find the results in the browser console.</p>
+
+    <p>Please input a number between 10 and 25:</p>
+    <input type="number" id="demo">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="message"></p>
+
+    <script>
+        function myFunction() {
+            let message = document.getElementById("message");
+        message.innerHTML = "";
+        let x = document.getElementById("demo").value;
+        try {
+            if(x == "") throw "Please input a number";
+            if(x < 10) throw "Your number is too low!";
+            if(x > 25) throw "Your number is too high!";
+        }
+        catch(err) {
+            message.innerHTML = "Input " + err;
+        }
+        finally {
+            document.getElementById('demo').value = "";
+        }
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
